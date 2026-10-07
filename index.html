@@ -27,6 +27,92 @@
   <meta name="theme-color" content="#172735">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23172735'/%3E%3Cpath d='M23 18l9-8 9 8' fill='none' stroke='%2321c4ce' stroke-width='5'/%3E%3Ctext x='9' y='48' font-family='Arial' font-weight='700' font-size='28' fill='white'%3EBR%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .person {
+      display: grid;
+      grid-template-columns: 136px minmax(0, 1fr);
+      gap: 26px;
+      align-items: center;
+    }
+    .person-photo {
+      width: 136px;
+      height: 136px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      border: 4px solid #f6f1e8;
+      box-shadow: 0 0 0 2px #21c4ce;
+    }
+    .person:first-child .person-photo {
+      box-shadow: 0 0 0 2px #f06454;
+    }
+    .person-award {
+      margin-top: 14px;
+      font-weight: 700;
+      color: #172735;
+    }
+    .whatsapp-button {
+      display: grid !important;
+      grid-template-columns: 34px minmax(0, 1fr);
+      column-gap: 12px;
+      align-items: center;
+      min-width: 310px;
+      padding: 15px 20px !important;
+      color: #fff !important;
+      background: #172735 !important;
+      border-color: #172735 !important;
+      text-decoration: none;
+    }
+    .whatsapp-button svg {
+      grid-row: 1 / span 2;
+      width: 30px;
+      height: 30px;
+      fill: #21c4ce;
+    }
+    .whatsapp-button strong,
+    .whatsapp-button span {
+      display: block;
+      white-space: nowrap;
+    }
+    .whatsapp-button strong {
+      font-size: 1rem;
+      line-height: 1.1;
+    }
+    .whatsapp-button span {
+      margin-top: 3px;
+      font-size: .86rem;
+      font-weight: 500;
+      opacity: .82;
+    }
+    .whatsapp-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(23,39,53,.22);
+    }
+    @media (max-width: 720px) {
+      .person {
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 18px;
+      }
+      .person-photo {
+        width: 92px;
+        height: 92px;
+      }
+      .whatsapp-button {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+      }
+    }
+    @media (max-width: 420px) {
+      .person {
+        grid-template-columns: 1fr;
+      }
+      .person-photo {
+        width: 108px;
+        height: 108px;
+      }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -179,11 +265,11 @@
       </div>
       <div class="team-grid">
         <article class="person">
-          <img src="logo.png" class="person-mark" alt="" aria-hidden="true">
-          <div><p class="person-role">Direção de Produção</p><h3>Wladimir Duarte</h3><p>Mais de três décadas em produção executiva, direção técnica, infraestrutura e operações de eventos corporativos, culturais e live marketing.</p></div>
+          <img src="wladimir-duarte.jpg" class="person-photo" alt="Wladimir Duarte, diretor de produção da Birô Cenográfico">
+          <div><p class="person-role">Direção de Produção</p><h3>Wladimir Duarte</h3><p>Mais de três décadas em produção executiva, direção técnica, infraestrutura e operações de eventos corporativos, culturais e live marketing.</p><p class="person-award">Vencedor do Prêmio Live 2022 — Produtor Executivo do Ano.</p></div>
         </article>
         <article class="person">
-          <img src="logo.png" class="person-mark" alt="" aria-hidden="true">
+          <img src="rafael-oliveira.jpg" class="person-photo" alt="Rafael Oliveira, diretor de projetos da Birô Cenográfico">
           <div><p class="person-role">Direção de Projetos</p><h3>Rafael Oliveira</h3><p>Mais de 20 anos de experiência em criação cenográfica, projetos 3D, desenvolvimento executivo, orçamento e acompanhamento de produção e montagem.</p></div>
         </article>
       </div>
@@ -196,7 +282,11 @@
         <p>Rio e São Paulo — e projetos por onde fizer sentido.</p>
       </div>
       <div class="contact-actions">
-        <a class="button button-light" href="https://wa.me/5521998461713?text=Olá%2C%20Birô!%20Quero%20conversar%20sobre%20um%20projeto%20cenográfico." target="_blank" rel="noopener">WhatsApp · +55 21 99846-1713</a>
+        <a class="button whatsapp-button" href="https://wa.me/5521998461713?text=Olá%2C%20Birô!%20Quero%20conversar%20sobre%20um%20projeto%20cenográfico." target="_blank" rel="noopener" aria-label="Falar com a Birô pelo WhatsApp no número +55 21 99846-1713">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.03 3C8.85 3 3.02 8.82 3.02 16c0 2.29.6 4.54 1.73 6.51L3 29l6.66-1.75A12.96 12.96 0 0 0 16.03 29C23.2 29 29 23.18 29 16S23.2 3 16.03 3Zm0 23.81c-2.02 0-4-.55-5.72-1.59l-.41-.24-3.95 1.03 1.05-3.85-.26-.4A10.8 10.8 0 1 1 16.03 26.8Zm5.92-8.08c-.32-.16-1.92-.95-2.22-1.06-.3-.11-.52-.16-.74.16-.22.32-.84 1.06-1.03 1.27-.19.22-.38.24-.7.08-.33-.16-1.37-.5-2.61-1.61a9.83 9.83 0 0 1-1.81-2.25c-.19-.32-.02-.5.14-.66.15-.14.33-.38.49-.57.16-.19.22-.32.33-.54.1-.22.05-.41-.03-.57-.08-.16-.74-1.79-1.02-2.45-.27-.65-.54-.56-.74-.57h-.63c-.22 0-.57.08-.87.4-.3.33-1.14 1.12-1.14 2.72 0 1.6 1.17 3.15 1.33 3.37.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.92-.79 2.19-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.62-.38Z"/></svg>
+          <strong>Fale com a Birô</strong>
+          <span>+55 21 99846-1713</span>
+        </a>
         <a href="mailto:contato@birocenografico.com.br">contato@birocenografico.com.br</a>
         <a href="https://www.instagram.com/birocenografico/" target="_blank" rel="noopener">Instagram · @birocenografico</a>
       </div>
